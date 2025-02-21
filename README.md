@@ -1,22 +1,21 @@
 # 🚀 Decentralized File Sharing using Blockchain
 
-![GitHub repo size](https://img.shields.io/github/repo-size/AdhishthanAshok/DecentralizedFileSharing?color=blue&style=for-the-badge)
 ## 👥 Contributors
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/username1"><img src="https://github.com/Aartisushmesh29.png" width="100px;" alt=""/><br /><sub><b>Mail to : Aarti Sushmesh</b></sub></a></td>
-    <td align="center"><a href="https://github.com/username2"><img src="https://github.com/dikshajaiswal855.png" width="100px;" alt=""/><br /><sub><b>Mail to : Diksha Jaiswal</b></sub></a></td>
-    <td align="center"><a href="https://github.com/username3"><img src="https://github.com/username3.png" width="100px;" alt=""/><br /><sub><b>Mail to : Neha Kohli</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username1"><img src="https://github.com/Aartisushmesh29.png" width="100px;" alt=""/><br /><sub><b>Aarti Sushmesh</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username2"><img src="https://github.com/dikshajaiswal855.png" width="100px;" alt=""/><br /><sub><b>Diksha Jaiswal</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username3"><img src="https://github.com/username3.png" width="100px;" alt=""/><br /><sub><b>Neha Kohli</b></sub></a></td>
   </tr>
 </table>
 
 🔹 Alternatively, if they prefer emails, you can add their email IDs in a text format:
 
 **Contributors:**  
-- 🧑‍💻 [Aarti Sushmesh](mailto:aartisushmesh@gmail)  
-- 🧑‍💻 [Diksha Jaiswal](mailto:dikshajaiswal855@gmail.com)  
-- 🧑‍💻 [Neha Kohli](mailto:nehakohli3003@gmail.com)  
+- 🧑‍💻 [Mail to : Aarti Sushmesh](mailto:aartisushmesh@gmail)  
+- 🧑‍💻 [Mail to : Diksha Jaiswal](mailto:dikshajaiswal855@gmail.com)  
+- 🧑‍💻 [Mail to : Neha Kohli](mailto:nehakohli3003@gmail.com)  
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
