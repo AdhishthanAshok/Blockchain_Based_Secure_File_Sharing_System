@@ -5,7 +5,7 @@
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/username1"><img src="https://github.com/username1.png" width="100px;" alt=""/><br /><sub><b>Contributor 1</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username1"><img src="https://github.com/Aartisushmesh29.png" width="100px;" alt=""/><br /><sub><b>Contributor 1</b></sub></a></td>
     <td align="center"><a href="https://github.com/username2"><img src="https://github.com/username2.png" width="100px;" alt=""/><br /><sub><b>Contributor 2</b></sub></a></td>
     <td align="center"><a href="https://github.com/username3"><img src="https://github.com/username3.png" width="100px;" alt=""/><br /><sub><b>Contributor 3</b></sub></a></td>
   </tr>
@@ -14,10 +14,10 @@
 🔹 Alternatively, if they prefer emails, you can add their email IDs in a text format:
 
 **Contributors:**  
-- 🧑‍💻 [Contributor 1](mailto:aartisushmesh@gmail)  
-- 🧑‍💻 [Contributor 2](mailto:dikshajaiswal855@gmail.com)  
-- 🧑‍💻 [Contributor 3](mailto:nehakohli3003@gmail.com)  
-![License](https://img.shields.io/github/license/AdhishthanAshok/DecentralizedFileSharing?style=for-the-badge)
+- 🧑‍💻 [Aarti Sushmesh](mailto:aartisushmesh@gmail)  
+- 🧑‍💻 [Diksha Jaiswal](mailto:dikshajaiswal855@gmail.com)  
+- 🧑‍💻 [Neha Kohli](mailto:nehakohli3003@gmail.com)  
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
 > 📢 **Accepted for Oral Presentation at the 2025 4th OPJU International Technology Conference (OTCON) & Eligible for IEEE Xplore Publication** 🎉
 
