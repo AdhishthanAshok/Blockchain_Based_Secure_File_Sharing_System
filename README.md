@@ -1,8 +1,23 @@
 # 🚀 Decentralized File Sharing using Blockchain
 
-![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/DecentralizedFileSharing?color=blue&style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors/yourusername/DecentralizedFileSharing?style=for-the-badge)
-![License](https://img.shields.io/github/license/yourusername/DecentralizedFileSharing?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/AdhishthanAshok/DecentralizedFileSharing?color=blue&style=for-the-badge)
+## 👥 Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/username1"><img src="https://github.com/username1.png" width="100px;" alt=""/><br /><sub><b>Contributor 1</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username2"><img src="https://github.com/username2.png" width="100px;" alt=""/><br /><sub><b>Contributor 2</b></sub></a></td>
+    <td align="center"><a href="https://github.com/username3"><img src="https://github.com/username3.png" width="100px;" alt=""/><br /><sub><b>Contributor 3</b></sub></a></td>
+  </tr>
+</table>
+
+🔹 Alternatively, if they prefer emails, you can add their email IDs in a text format:
+
+**Contributors:**  
+- 🧑‍💻 [Contributor 1](mailto:aartisushmesh@gmail)  
+- 🧑‍💻 [Contributor 2](mailto:dikshajaiswal855@gmail.com)  
+- 🧑‍💻 [Contributor 3](mailto:nehakohli3003@gmail.com)  
+![License](https://img.shields.io/github/license/AdhishthanAshok/DecentralizedFileSharing?style=for-the-badge)
 
 > 📢 **Accepted for Oral Presentation at the 2025 4th OPJU International Technology Conference (OTCON) & Eligible for IEEE Xplore Publication** 🎉
 
@@ -19,30 +34,16 @@ Decentralized File Sharing using Blockchain is a cutting-edge solution that elim
 ## 🛠️ Tech Stack
 - **Blockchain**: Ethereum / Hyperledger
 - **Smart Contracts**: Solidity
-- **Frontend**: React.js / Next.js
+- **Frontend**: React.js 
 - **Backend**: Node.js / Express
-- **Storage**: IPFS / Filecoin
-- **Database**: MongoDB / PostgreSQL
+- **Storage**: IPFS 
+- **Database**: Pinata
 - **Authentication**: Metamask / Web3.js
-
-## 📂 Project Structure
-```
-📦 DecentralizedFileSharing
-├── 📁 backend
-│   ├── server.js
-│   ├── smartContracts/
-│   └── routes/
-├── 📁 frontend
-│   ├── src/
-│   ├── components/
-│   └── pages/
-└── 📄 README.md
-```
 
 ## 🚀 Installation & Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/DecentralizedFileSharing.git
+git clone .... 
 
 # Navigate to the backend folder and install dependencies
 cd backend
@@ -68,7 +69,7 @@ npm start
 4️⃣ **Authorized users** can retrieve and decrypt the file securely.
 
 ## 📝 Research Paper
-📖 **Title:** Decentralized File Sharing using Blockchain  
+📖 **Title:** FROM CENTRALIZED CLOUDS TO DECENTRALIZED SOLUTIONS: A BLOCKCHAIN-BASED APPROACH TO FILE SHARING  
 📅 **Conference:** 2025 4th OPJU International Technology Conference (OTCON)  
 📚 **Publication:** Eligible for IEEE Xplore  
 
@@ -83,5 +84,4 @@ Give this repo a ⭐ if you like this project and find it useful!
 
 ## 📬 Contact
 📧 Email: [adhishthanashok@gmail.com](mailto:adhishthanashok@gmail.com)  
-🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)  
-💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)  
+💼 LinkedIn: [Your Profile](https://linkedin.com/in/adhishthanAshok)  
