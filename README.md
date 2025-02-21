@@ -10,7 +10,7 @@
   </tr>
 </table>
 
-🔹 Alternatively, if they prefer emails, you can add their email IDs in a text format:
+🔹 E-Mail IDs of Contributors :
 
 **Contributors:**  
 - 🧑‍💻 [Mail to : Aarti Sushmesh](mailto:aartisushmesh@gmail)  
