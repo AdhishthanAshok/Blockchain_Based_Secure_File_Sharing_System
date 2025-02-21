@@ -1,11 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-import "./FileUpload.css";
-const FileUpload = ({ contract, account, provider }) => {
+
+const FileUpload = ({ account, provider, contract }) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("No image selected");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const uploadFile = async () => {
     if (file) {
       try {
         const formData = new FormData();
@@ -16,13 +20,13 @@ const FileUpload = ({ contract, account, provider }) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formData,
           headers: {
-            pinata_api_key: `82c2a5e4d14cdc987b69`,
-            pinata_secret_api_key: `75eb17725d663ca1b5aabe5dc763c09633063be3d6af5a485eeb615a352dc0ad`,
+            pinata_api_key: `YOUR_API_KEY`,
+            pinata_secret_api_key: `YOUR_API__SECRET_KEY`,
             "Content-Type": "multipart/form-data",
           },
         });
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
-        contract.add(account, ImgHash);
+        contract.add(account,ImgHash);
         alert("Successfully Image Uploaded");
         setFileName("No image selected");
         setFile(null);
@@ -30,55 +34,37 @@ const FileUpload = ({ contract, account, provider }) => {
         alert("Unable to upload image to Pinata");
       }
     }
-    alert("Successfully Image Uploaded");
-    setFileName("No image selected");
-    setFile(null);
   };
-  const retrieveFile = (e) => {
-    const data = e.target.files[0]; //files array of files object
-    // console.log(data);
-    const reader = new window.FileReader();
-    reader.readAsArrayBuffer(data);
-    reader.onloadend = () => {
-      setFile(e.target.files[0]);
-    };
-    setFileName(e.target.files[0].name);
-    e.preventDefault();
-  };
+  
+
   return (
-    <div className="top">
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="file-upload" className="choose">
-          Choose Image
-        </label>
-        <input
-          disabled={!account}
-          type="file"
-          id="file-upload"
-          name="data"
-          onChange={retrieveFile}
-        />
-        <span className="textArea">Image: {fileName}</span>
-        <button type="submit" className="upload" disabled={!file}>
-          Upload File
-        </button>
-      </form>
+    <div className="flex flex-col items-center space-y-4">
+      <input type="file" onChange={handleFileChange} className="border p-2 rounded-md" />
+      <span className="textArea">Image: {fileName}</span>
+      <button
+        onClick={uploadFile}
+        className="bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-lg shadow-md transition-transform hover:scale-105"
+      >
+        Upload File
+      </button>
     </div>
   );
 };
+
 export default FileUpload;
+
 
 // import { useState } from "react";
 // import axios from "axios";
 // import "./FileUpload.css";
 // function FileUpload({ contract, provider, account }) {
-//   // const [urlArr, setUrlArr] = useState([]);
-//   const [file, setFile] = useState(null);
-//   const [fileName, setFileName] = useState("No image selected");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
+  //   // const [urlArr, setUrlArr] = useState([]);
+  //   const [file, setFile] = useState(null);
+  //   const [fileName, setFileName] = useState("No image selected");
+  
+  //   const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     try {
 //       if (file) {
 //         try {
 //           const formData = new FormData();

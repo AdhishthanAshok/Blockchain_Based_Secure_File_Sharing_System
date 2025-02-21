@@ -1,5 +1,6 @@
+import React from "react";
 import { useEffect } from "react";
-import "./Modal.css";
+
 const Modal = ({ setModalOpen, contract }) => {
   const sharing = async () => {
     const address = document.querySelector(".address").value;
@@ -22,37 +23,28 @@ const Modal = ({ setModalOpen, contract }) => {
     };
     contract && accessList();
   }, [contract]);
+
   return (
-    <>
-      <div className="modalBackground">
-        <div className="modalContainer">
-          <div className="title">Share with</div>
-          <div className="body">
-            <input
-              type="text"
-              className="address"
-              placeholder="Enter Address"
-            ></input>
-          </div>
-          <form id="myForm">
-            <select id="selectNumber">
-              <option className="address">People With Access</option>
-            </select>
-          </form>
-          <div className="footer">
-            <button
-              onClick={() => {
-                setModalOpen(false);
-              }}
-              id="cancelBtn"
-            >
-              Cancel
-            </button>
-            <button onClick={() => sharing()}>Share</button>
-          </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[90%] sm:w-[50%] md:w-[40%] lg:w-[30%]">
+        <h2 className="text-lg font-bold mb-4 text-center text-white">Share Files</h2>
+        <input
+          type="text"
+          placeholder="Enter recipient's address"
+          className="w-full min-w-[5ch] text-gray-900 border border-gray-400 p-2 rounded-md"
+        />
+        <div className="flex justify-between mt-4 space-x-2">
+          <button onClick={() => setModalOpen(false)} className="px-4 py-2 bg-red-600 text-white rounded-lg">
+            Cancel
+          </button>
+          <button onClick={() => sharing()} className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+            Share
+          </button>
         </div>
       </div>
-    </>
+    </div>
+
   );
 };
+
 export default Modal;
