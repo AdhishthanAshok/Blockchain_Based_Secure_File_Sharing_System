@@ -4,7 +4,10 @@
     "hardhat": "^2.22.18"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "create-react-app": "^5.0.1",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "react-icons": "^5.5.0"
   }
 }

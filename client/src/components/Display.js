@@ -48,6 +48,7 @@ const Display = ({ contract, account }) => {
                   alt={`image-${i}`}
                   className=" rounded-lg object-cover"
                 />
+                <p className="bg-white border border-black p-4 rounded-lg">Hello</p>
               </div>
             </a>
           </div>
