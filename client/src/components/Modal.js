@@ -31,7 +31,7 @@ const Modal = ({ setModalOpen, contract }) => {
         <input
           type="text"
           placeholder="Enter recipient's address"
-          className="w-full min-w-[5ch] text-gray-900 border border-gray-400 p-2 rounded-md"
+          className="address w-full min-w-[5ch] text-gray-900 border border-gray-400 p-2 rounded-md"
         />
         <div className="flex justify-between mt-4 space-x-2">
           <button onClick={() => setModalOpen(false)} className="px-4 py-2 bg-red-600 text-white rounded-lg">

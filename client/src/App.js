@@ -63,10 +63,7 @@ function App() {
       </div>
 
       <main className="flex flex-col items-center justify-center w-full mt-10 z-10 px-4">
-        <section className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Upload File</h2>
-          <FileUpload account={account} provider={provider} contract={contract} />
-        </section>
+        <FileUpload account={account} provider={provider} contract={contract} />
 
         <section className="w-full max-w-screen-lg mt-8 mb-10">
           <h2 className="text-2xl font-semibold mb-4 text-center">Your Files</h2>
