@@ -22,6 +22,16 @@ const Modal = ({ setModalOpen, contract }) => {
       return;
     }
 
+    // Check if the address is already granted
+    const isAlreadyGranted = accessHistory.some(
+      (entry) => entry.user === recipientAddress && entry.access
+    );
+
+    if (isAlreadyGranted) {
+      alert("Already have access.");
+      return;
+    }
+
     try {
       await contract.allow(recipientAddress); // Calls allow() from Upload.sol
       setRecipientAddress(""); // Clear input field
@@ -36,7 +46,13 @@ const Modal = ({ setModalOpen, contract }) => {
   const revokeAccess = async (userAddress) => {
     try {
       await contract.disallow(userAddress); // Calls disallow() from Upload.sol
-      fetchAccessHistory(); // Refresh the list
+
+      // Update the existing log to "Revoked" instead of removing it
+      setAccessHistory((prevHistory) =>
+        prevHistory.map((entry) =>
+          entry.user === userAddress ? { ...entry, access: false } : entry
+        )
+      );
     } catch (error) {
       console.error("Error revoking access:", error);
       alert("Failed to revoke access. Please try again.");
@@ -82,12 +98,12 @@ const Modal = ({ setModalOpen, contract }) => {
               >
                 <span className="truncate w-3/4">{access.user}</span>
                 <span className="text-xs">
-                  {access.access ? "Access Granted" : "Access Revoked"}
+                  {access.access ? "Access Granted" : "Revoked"}
                 </span>
                 {access.access && (
                   <button
                     onClick={() => revokeAccess(access.user)}
-                    className="text-red-400 hover:text-gray-200 border border-red-400 rounded px-2 py-1"
+                    className="text-red-400 hover:text-red-100 border border-red-400 rounded px-2 py-1"
                   >
                     Revoke
                   </button>
