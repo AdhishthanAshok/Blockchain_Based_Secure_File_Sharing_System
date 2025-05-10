@@ -21,7 +21,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
-> 📢 **Accepted for Oral Presentation at the 2025 4th OPJU International Technology Conference (OTCON) & Eligible for IEEE Xplore Publication** 🎉
+> 📢 **Presented at the 2025 4th OPJU International Technology Conference (OTCON) & Published in IEEE Xplore Publication** 🎉
 
 ## 📌 Introduction
 Decentralized File Sharing using Blockchain is a cutting-edge solution that eliminates centralized intermediaries, ensuring secure, immutable, and efficient data sharing. This project leverages **blockchain technology**, **smart contracts**, and **peer-to-peer networks** to create a trustless system for file exchange.
