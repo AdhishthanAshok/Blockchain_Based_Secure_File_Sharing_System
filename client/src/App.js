@@ -5,6 +5,24 @@ import FileUpload from "./components/FileUpload";
 import Display from "./components/Display";
 import Modal from "./components/Modal";
 
+/**
+    * Asynchronously loads the Ethereum provider and sets up event listeners for chain and account changes.
+    * Requests access to the user's Ethereum accounts and retrieves the signer and address.
+    * Initializes a smart contract instance using the provided ABI and contract address.
+    * Updates the state with the provider, account address, and contract instance.
+    *
+    * @async
+    * @function loadProvider
+    * @throws Will log an error if MetaMask is not installed.
+    *
+    * Variables:
+    * - `provider`: Represents the Ethereum provider (e.g., MetaMask) used to interact with the blockchain.
+    * - `signer`: An abstraction of an Ethereum account that can sign transactions.
+    * - `address`: The Ethereum address of the connected account.
+    * - `contractAddress`: The address of the deployed smart contract on the blockchain.
+    * - `contract`: An instance of the smart contract, allowing interaction with its methods.
+    */
+
 function App() {
   const [account, setAccount] = useState("");
   const [contract, setContract] = useState(null);
@@ -24,7 +42,7 @@ function App() {
         const address = await signer.getAddress();
         setAccount(address);
 
-        const contractAddress = "";
+        const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
         const contract = new ethers.Contract(contractAddress, Upload.abi, signer);
 
         setContract(contract);

@@ -174,7 +174,7 @@ const Display = ({ contract, account }) => {
               rel="noopener noreferrer"
               className="block overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105"
             >
-              <div className="bg-white border border-black p-4 rounded-lg">
+              <div className="border border-black p-4 rounded-lg">
                 <div className="relative h-48 flex items-center justify-center">
                   <img
                     src={displayUrl}

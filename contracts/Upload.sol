@@ -1,54 +1,81 @@
 // SPDX-License-Identifier: GPL-3.0
-
 pragma solidity >=0.7.0 <0.9.0;
 
+/*
+    Upload Contract
+    ----------------
+    This contract allows users to upload files, share them with others (globally or per file),
+    manage access permissions, and delete files logically (soft delete).
+*/
+
 contract Upload {
+    // Struct to define access permissions
     struct Access {
-        address user;
-        bool access; // true or false
+        address user; // Address of the user
+        bool access; // Whether the user has access or not
     }
 
+    // Struct to define file properties
     struct File {
-        string url;
-        uint256 id;
-        bool exists; // Track if file exists or was deleted
+        string url; // File URL (assumed stored on IPFS or other off-chain storage)
+        uint256 id; // Unique identifier of the file
+        bool exists; // Whether the file exists (not deleted)
     }
 
+    // Mapping of user => list of their files
     mapping(address => File[]) private value;
+
+    // Mapping of owner => viewer => global access permission
     mapping(address => mapping(address => bool)) private ownership;
+
+    // Mapping of owner => list of users with global access (for UI/management)
     mapping(address => Access[]) private accessList;
+
+    // Mapping to track if a user was ever in the accessList (avoid duplicate entries)
     mapping(address => mapping(address => bool)) private previousData;
 
-    // New mappings for per-file access
+    // === Per-file access control ===
+
+    // Mapping of owner => fileId => viewer => access permission
     mapping(address => mapping(uint256 => mapping(address => bool)))
         private fileAccess;
+
+    // Mapping of owner => fileId => list of users with access to that file
     mapping(address => mapping(uint256 => Access[])) private fileAccessList;
 
-    // File counter to generate unique IDs
+    // Mapping to track how many files a user has uploaded (used for unique file IDs)
     mapping(address => uint256) private fileIdCounter;
 
+    // Function to add/upload a file for a user
     function add(address _user, string memory url) external {
-        uint256 fileId = fileIdCounter[_user];
-        value[_user].push(File(url, fileId, true));
-        fileIdCounter[_user]++;
+        uint256 fileId = fileIdCounter[_user]; // get next file ID
+        value[_user].push(File(url, fileId, true)); // add file to user list
+        fileIdCounter[_user]++; // increment file ID counter
     }
 
+    // Function to give global access to another user (view all current & future files)
     function allow(address user) external {
         ownership[msg.sender][user] = true;
+
         if (previousData[msg.sender][user]) {
+            // If user was already in list, update their access to true
             for (uint i = 0; i < accessList[msg.sender].length; i++) {
                 if (accessList[msg.sender][i].user == user) {
                     accessList[msg.sender][i].access = true;
                 }
             }
         } else {
+            // New user to the list
             accessList[msg.sender].push(Access(user, true));
             previousData[msg.sender][user] = true;
         }
     }
 
+    // Function to revoke global access
     function disallow(address user) public {
         ownership[msg.sender][user] = false;
+
+        // Update accessList
         for (uint i = 0; i < accessList[msg.sender].length; i++) {
             if (accessList[msg.sender][i].user == user) {
                 accessList[msg.sender][i].access = false;
@@ -56,9 +83,9 @@ contract Upload {
         }
     }
 
-    // New function to allow access to a specific file
+    // Allow access to a specific file for a user
     function allowFile(address user, uint256 fileId) external {
-        // Make sure the file exists
+        // Check if file exists
         bool fileFound = false;
         for (uint i = 0; i < value[msg.sender].length; i++) {
             if (
@@ -70,8 +97,10 @@ contract Upload {
         }
         require(fileFound, "File does not exist");
 
+        // Set access permission
         fileAccess[msg.sender][fileId][user] = true;
 
+        // Update or add user to fileAccessList
         bool userExists = false;
         for (uint i = 0; i < fileAccessList[msg.sender][fileId].length; i++) {
             if (fileAccessList[msg.sender][fileId][i].user == user) {
@@ -86,10 +115,11 @@ contract Upload {
         }
     }
 
-    // New function to revoke access to a specific file
+    // Revoke access to a specific file
     function disallowFile(address user, uint256 fileId) external {
         fileAccess[msg.sender][fileId][user] = false;
 
+        // Update access list entry
         for (uint i = 0; i < fileAccessList[msg.sender][fileId].length; i++) {
             if (fileAccessList[msg.sender][fileId][i].user == user) {
                 fileAccessList[msg.sender][fileId][i].access = false;
@@ -98,7 +128,7 @@ contract Upload {
         }
     }
 
-    // New function to delete a file
+    // Soft delete a file (mark exists as false)
     function deleteFile(uint256 fileId) external {
         bool fileFound = false;
 
@@ -106,7 +136,7 @@ contract Upload {
             if (
                 value[msg.sender][i].id == fileId && value[msg.sender][i].exists
             ) {
-                value[msg.sender][i].exists = false; // Mark as deleted
+                value[msg.sender][i].exists = false;
                 fileFound = true;
                 break;
             }
@@ -114,23 +144,17 @@ contract Upload {
 
         require(fileFound, "File not found or already deleted");
 
-        // Optionally: Remove all access permissions for this file
-        // This is commented out as it would increase gas costs
-        // But you can uncomment if you want to clean up access permissions
-
-        // Access[] memory accessUsers = fileAccessList[msg.sender][fileId];
-        // for (uint i = 0; i < accessUsers.length; i++) {
-        //     fileAccess[msg.sender][fileId][accessUsers[i].user] = false;
-        // }
+        // Optionally remove all per-file access (commented out to save gas)
     }
 
+    // Display all files of a user that current caller is allowed to see
     function display(address _user) external view returns (File[] memory) {
         require(
             _user == msg.sender || ownership[_user][msg.sender],
             "You don't have access"
         );
 
-        // Count existing (non-deleted) files
+        // Count non-deleted files
         uint256 existingFileCount = 0;
         for (uint i = 0; i < value[_user].length; i++) {
             if (value[_user][i].exists) {
@@ -138,7 +162,7 @@ contract Upload {
             }
         }
 
-        // Create array of existing files
+        // Create and return filtered file list
         File[] memory existingFiles = new File[](existingFileCount);
         uint256 currentIndex = 0;
 
@@ -152,14 +176,13 @@ contract Upload {
         return existingFiles;
     }
 
-    // New function to display specific files shared with you
+    // Display only files that have been shared with you specifically (not global access)
     function displaySharedFiles(
         address owner
     ) external view returns (File[] memory) {
         File[] memory allFiles = value[owner];
         uint256 sharedFileCount = 0;
 
-        // First, count shared files that haven't been deleted
         for (uint i = 0; i < allFiles.length; i++) {
             if (
                 allFiles[i].exists &&
@@ -169,7 +192,6 @@ contract Upload {
             }
         }
 
-        // Then create and populate the result array
         File[] memory sharedFiles = new File[](sharedFileCount);
         uint256 currentIndex = 0;
 
@@ -186,20 +208,20 @@ contract Upload {
         return sharedFiles;
     }
 
+    // Return global access list of users for the current sender
     function shareAccess() public view returns (Access[] memory) {
         return accessList[msg.sender];
     }
 
-    // New function to get the access list for a specific file
+    // Return per-file access list of users
     function getFileAccessList(
         uint256 fileId
     ) public view returns (Access[] memory) {
         return fileAccessList[msg.sender][fileId];
     }
 
-    // New function to get all files for a user
+    // Return all non-deleted files uploaded by the current user
     function getAllFiles() public view returns (File[] memory) {
-        // Count existing (non-deleted) files
         uint256 existingFileCount = 0;
         for (uint i = 0; i < value[msg.sender].length; i++) {
             if (value[msg.sender][i].exists) {
@@ -207,7 +229,6 @@ contract Upload {
             }
         }
 
-        // Create array of existing files
         File[] memory existingFiles = new File[](existingFileCount);
         uint256 currentIndex = 0;
 
