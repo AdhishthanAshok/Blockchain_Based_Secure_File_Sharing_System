@@ -4,8 +4,8 @@
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/AdhishthanAshok.png"><img src="https://github.com/AdhishthanAshok.png" width="100px;" alt=""/><br /><sub><b>Adhishthan Ashok</b></sub></a></td>
-    <td align="center"><a href="https://github.com/Aartisushmesh29.png"><img src="https://github.com/Aartisushmesh29.png" width="100px;" alt=""/><br /><sub><b>Aarti Sushmesh</b></sub></a></td>
+    <td align="center"><a href="https://github.com/AdhishthanAshok"><img src="https://github.com/AdhishthanAshok.png" width="100px;" alt=""/><br /><sub><b>Adhishthan Ashok</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Aartisushmesh29"><img src="https://github.com/Aartisushmesh29.png" width="100px;" alt=""/><br /><sub><b>Aarti Sushmesh</b></sub></a></td>
     <td align="center"><a href="https://github.com/dikshajaiswal855"><img src="https://github.com/dikshajaiswal855.png" width="100px;" alt=""/><br /><sub><b>Diksha Jaiswal</b></sub></a></td>
     <td align="center"><a href="https://github.com/Nehakohli123"><img src="https://github.com/Nehakohli123.png" width="100px;" alt=""/><br /><sub><b>Neha Kohli</b></sub></a></td>
   </tr>
