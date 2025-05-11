@@ -47,21 +47,19 @@ Decentralized File Sharing using Blockchain is a cutting-edge solution that elim
 # Clone the repository
 git clone .... 
 
-# Navigate to the backend folder and install dependencies
-cd backend
+# install dependencies on the root folder for ether.js and node.js
 npm install
 
-# Navigate to the frontend folder and install dependencies
-cd ../frontend
+# Navigate to the client folder and install dependencies
+cd ../client
 npm install
 
-# Run the backend server
-cd ../backend
-node server.js
-
-# Run the frontend application
-cd ../frontend
-npm start
+# Steps to run project : (All in Seperate Terminal)
+On Root Directory,
+1. npx hardhat node 
+2. npx hardhat run --network localhost scripts/deploy.js (Copy the address and paste it inside contactAddress variable inside App.js)
+In client directory, 
+3. npm start
 ```
 
 ## 🎯 How It Works
