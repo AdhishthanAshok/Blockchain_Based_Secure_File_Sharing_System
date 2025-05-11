@@ -86,4 +86,4 @@ Give this repo a ⭐ if you like this project and find it useful!
 
 ## 📬 Contact
 📧 Email: [adhishthanashok@gmail.com](mailto:adhishthanashok@gmail.com)  
-💼 LinkedIn: [Your Profile](https://linkedin.com/in/adhishthanAshok)  
+💼 LinkedIn: [Visit my profile](https://linkedin.com/in/adhishthanAshok)  
